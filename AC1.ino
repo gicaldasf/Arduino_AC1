@@ -3,6 +3,7 @@ const int verde = 6;
 const int azul = 7
 
 bool estadoLedVermelho = false;
+bool estadoLedAzul = false;
 
 const int botao1 = 2;
 unsigned long lastDebounceTime1 = 0;
@@ -15,13 +16,13 @@ void setup()
   
   pinMode(vermelho, OUTPUT);
   pinMode(verde, OUTPUT);
-  pinMode(azul, saida);
+  pinMode(azul, OUTPUT);
   
   Serial.begin(9600);
 	
   Serial.println("AC1 - Meu Primeiro Projeto 2021");
   Serial.println("                           V1.0");
-  Serial.println("Grupo: NOME AQUI               ");
+  Serial.println("Grupo: WAR-CATS              ");
 }
 
 void loop()
@@ -32,10 +33,10 @@ void loop()
   	lastDebounceTime1 = millis();
   }
   
-  if(getTemperatura() > 30){
+  if(getTemperatura() > 15){
     ledAzul(true);
   }else{
-  	ledAzul(falso); 
+  	ledAzul(false); 
   }
   	
   delay(10);
@@ -49,7 +50,8 @@ void ledVerde(){
  //precisa fazer  
 }
 void ledAzul(bool estado){
-	digitalWrite(azul,estado);
+  estadoLedAzul = !estadoLedAzul;
+  digitalWrite(azul,estadoLedAzul);
 }
 
 int getTemperatura(){
