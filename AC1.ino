@@ -53,7 +53,7 @@ void ledVerde(){
   estadoLedVerde = !estadoLedVerde;
   digitalWrite(verde,estadoLedVerde);
 }
-void ledAzul(bool estado){
+void ledAzul(bool estado){ 
   estadoLedAzul = !estadoLedAzul;
   digitalWrite(azul,estadoLedAzul);
 }
